@@ -1,0 +1,22 @@
+<h1>Show Picture</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal @socket, GalleryWeb.PictureLive.FormComponent,
+    id: @picture.id,
+    title: @page_title,
+    action: @live_action,
+    picture: @picture,
+    return_to: Routes.picture_show_path(@socket, :show, @picture) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Message:</strong>
+    <%= @picture.message %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.picture_show_path(@socket, :edit, @picture), class: "button" %></span>
+<span><%= live_redirect "Back", to: Routes.picture_index_path(@socket, :index) %></span>
