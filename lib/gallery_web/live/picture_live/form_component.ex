@@ -36,7 +36,7 @@ defmodule GalleryWeb.PictureLive.FormComponent do
       {:ok, _picture} ->
         {:noreply,
          socket
-         |> put_flash(:info, "Picture created successfully")
+         |> put_flash(:info, "图片上传成功！")
          |> push_redirect(to: socket.assigns.return_to)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
