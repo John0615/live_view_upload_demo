@@ -25,7 +25,6 @@ defmodule GalleryWeb.PictureLive.FormComponent do
 
   @impl true
   def handle_event("validate", _params, socket) do
-
     {:noreply, socket}
   end
 
@@ -80,14 +79,12 @@ defmodule GalleryWeb.PictureLive.FormComponent do
   end
 
   defp put_photo_url(socket, %Picture{} = picture) do
-
     {completed, []} = uploaded_entries(socket, :photo)
 
     urls =
       for entry <- completed do
         Routes.static_path(socket, "/uploads/#{entry.uuid}.#{ext(entry)}")
       end
-
 
     %Picture{picture | url: Enum.join(urls, ",")}
   end

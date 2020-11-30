@@ -32,7 +32,6 @@ defmodule GalleryWeb.PictureLive.Index do
     |> assign(:picture, nil)
   end
 
-
   defp list_of_pictures do
     Art.list_pictures() |> Enum.chunk_every(3)
   end

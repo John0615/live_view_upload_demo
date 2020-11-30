@@ -57,7 +57,6 @@ defmodule Gallery.Art do
     |> Picture.changeset(attrs)
     |> Repo.insert()
     |> after_save(after_save)
-
   end
 
   defp after_save({:ok, picture}, func) do
